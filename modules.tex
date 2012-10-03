@@ -1,0 +1,15 @@
+\chapter{Modules}
+
+\section{The Basics}
+
+  \begin{define}
+    Let $R$ be a ring. A \bt{left $\bs{R}$-module} is an abelian group
+    $(M,+)$ endowed with an action of $R$, i.e. a map $R\times M \to M$,
+    usually denoted $(r,m)\mapsto rm$, such that
+    \begin{enumerate}
+      \item $(r + r')m = rm+r'm$, $r(m+m') = rm+rm'$
+      \item $1m = m$
+      \item $(rs)m = r(sm)$
+    \end{enumerate}
+  \end{define}
+  This is the same data as a ring homomorphism $R \to \End_\ZZ M$.

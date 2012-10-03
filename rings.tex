@@ -202,3 +202,85 @@
   $k\langle x_1, \ldots, x_n\rangle$ for every $n$. Check that the subalgebra
   $k\langle x, xy, xy^2, \ldots xy^{n-1} \rangle$ is isomorphic to
   $k\langle x_1, \ldots, x_n \rangle$.
+
+  Example: Quaternions $\HH = \RR \oplus \RR i \oplus \RR j \oplus \RR k$
+  $i^2 = j^2 = k^2 = ijk = -1$.
+  \begin{align*}
+    z &= a + bi + cj + dk \\
+    \bar{z} &= a - bi - cj - dk \\
+  \end{align*}
+  \[ z\bar{z} = 0 \longleftrightarrow  z = 0 \]
+  If $z\neq 0$, then $z^{-1} = \frac{\bar{z}}{z\bar{z}}$, call $\HH$ a division
+  ring.
+
+  Note: If $R$ is a ring in which $uv = vw = 1$, then
+  $u = u1 = u(vw) = (uv)w = 1w = w$.
+
+  $\HH$ is an $\RR$-algebra, observe there is a homomorphism $\CC\to \HH$, so
+  if we identify $\CC$ with the subalgebra of $\HH$ spanned by $1$ and $i$,
+  then $\HH$ becomes a vector space over $\CC$ in two ways: by left and right
+  multiplication. If $\lambda \in \CC = \RR \oplus \RR i$ and $q \in HH$, then
+  $\lambda q \in \HH$ and in this way $\HH$ becomes a $\CC$ vector space with
+  basis $\{1,j\}$, i.e. $\HH = \CC \oplus \CC j$. However we can also make a
+  $\CC$ vector space by defining  $\CC\times \HH \to \HH$ by
+  $(\lambda,q) \mapsto q \lambda$.
+
+  \bt{Warning} $\HH$ is not a $\CC$-algebra. The $\CC$ vector space on $\HH$ is
+  given by $\CC \times \HH \to \HH$, $(\lambda, q) \mapsto \lambda q$. Is 
+  $\mu:\HH \times \HH \to \HH$ $\CC$-bilinear. i.e.
+  \[ \mu(j,ik) = jik = -k^2 = 1 \neq -1 = ijk = i\mu(j,k), \]
+  so $\mu$ is not $\CC$-bilinear, i.e. $\HH$ is not a $\CC$-algebra.
+
+  If $z\bar{z} = 1$ and $z \notin \RR$, then $\RR \oplus \RR z$ is a subalgebra of
+  $\HH$ isomorphic to $\CC$.
+
+  \begin{lemma}
+    Let $R$ be a ring containing a field $k$ as a subring, then $R$ is a
+    $k$-algebra if and only if $k$ is in the center of $R$. (The center of a
+    ring $R$ is $Z(R) = \{z\in R: zr=rz, r \in R\}$.)
+  \end{lemma}
+  \begin{proof}
+    Make $R$ a $k$-vector space by $k\times R \to R$,
+    $(\lambda,r) \mapsto \lambda r$. Let $\mu: R \times R \to R$ be the
+    multiplication. If $k \not\subset Z(R)$ pick $\lambda \in k$, $s\in R$ such
+    that $\lambda s \neq s\lambda$. Then $\mu(s,\lambda 1) = s \lambda 1$ and
+    $\lambda\mu(s,1) = \lambda s 1$, so $R$ is not a $k$-algebra. However if
+    $k \subset Z(R)$ then 
+    \[\mu(s,\lambda r) = s\lambda r = \lambda sr = \lambda\mu(s,r)\]
+    etc.
+  \end{proof}
+
+  \bt{Low dimensional examples.}
+  \begin{enumerate}
+    \item $k$ = field = the only 1-dimensional $k$-algebra
+    \item Suppose $A$ is a 2-dimensional $k$-algebra. Then $A = k\oplus ka$,
+      so $A$ is commutative. (General principal: If $A$ is a $k$-algebra with
+      basis $B$, then $A$ is commutative if and only if $bb' = b'b$ for all
+      $b,b' \in B$.)
+    \item \[\begin{bmatrix} k & 0 \\ 0 & k \end{bmatrix} = k\oplus k
+      = k\times k \cong \frac{k[x]}{x^2-1}\]
+      This is isomorphic to the ring of all $k$-valued functions on a set with
+      two elements. $f:\{a,b\} \to k$ has a basis with the characteristic.
+    \item \[\frac{k[x]}{(x^2)}\]
+      These are all the 2-dimensional $k$-algebras if $k$ is algebraically
+      closed.
+    \item If not algebraically closed, there are others e.g. $k = \QQ$,
+      $\QQ + \QQ\sqrt{d}$ for $d$ square free integer.
+    \item $\dim_k(A) = 3$, $A = \begin{bmatrix} k & k \\ 0 & k\end{bmatrix}$
+      not commutative.
+  \end{enumerate}
+
+  \begin{define}
+    If $R$ is a $k$-algebra a subring of $R$ that is a $k$-subspace of $R$ is
+    called a \bt{subalgebra}.
+  \end{define}
+  
+  If $I$ is a two sided ideal in a $k$-algebra $R$, then $R/I$ is a $k$-algebra.
+
+  \begin{define}
+    A \bt{representation} of a $k$-algebra $R$ is a pair $(V,\rho)$ where $V$
+    is a $k$-vector space and
+    \[ \rho: R \to \End_k(V) \]
+    is a $k$-linear ring homomorphism.
+  \end{define}
+  Say ''$R$ acts on $V$''. Often write $av$ for $\rho(a)(v)$, $a\in R$, $v\in V$.
