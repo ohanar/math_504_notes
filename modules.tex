@@ -13,3 +13,93 @@
     \end{enumerate}
   \end{define}
   This is the same data as a ring homomorphism $R \to \End_\ZZ M$.
+
+  Examples:
+  \begin{enumerate}
+    \item $\{0\}$. $r\cdot 0 = 0$
+    \item $\sub{R}{R}$ where $r\cdot m = rm$.
+  \end{enumerate}
+
+  \begin{prop}
+    A module over a field $k$ is a $k$-vector space.
+  \end{prop}
+
+  \begin{define}
+    A subgroup $N$ of a left $R$-module $M$ is a \bt{submodule} if $rn\in N$
+    for all $r\in R$ and $n\in N$.
+  \end{define}
+
+  The submodules of $\sub{R}{R}$ are the left ideals of $R$.
+
+  \begin{define}
+    A non-zero left $R$-module $M$ is \bt{simple} if its only submodules are
+    $\{0\}$ and $M$ itself.
+  \end{define}
+
+  \begin{define}
+    If $M$ and $N$ are left $R$-modules, a map $f:M\to N$ is a
+    \bt{homomorphism} of left $R$-modules if it is a group homomorphism
+    and $f(rm) = rf(m)$ for all $r\in R$ and $m\in M$.
+  \end{define}
+
+  \begin{define}
+    A homomorphism $f$ of $R$-modules is an \bt{isomorphism} if it is
+    bijective.
+  \end{define}
+  The bijectivity allows us to define $f^{-1}$ and $f^{-1}$ is an $R$-module
+  homomorphism.
+
+  \begin{define}
+    If $N$ is a submodule of $M$, then $M/N$ becomes a left $R$-module via
+    \[ r(m + N) = rm + N, \]
+    we call this a \bt{quotient module}.
+  \end{define}
+  Observe that if $m-m'\in N$, then $rm - rm'\in N$ for all $r\in R$. So
+  $r(m+N)$ is well-defined.
+
+  More module examples:
+  \begin{enumerate}
+    \item $R/I$ where $I$ is a left ideal of $R$.
+    \item If $M$ and $N$ are left $R$-modules, their direct sum
+      \[ M\oplus N = \{(m,n): m \in M, n\in N\} \]
+      is a left $R$-module via $r(m,n) = (rm,rn)$.
+    \item free $R$-modules of finite rank: these are
+      \[ R^n = \underbrace{R \oplus \cdots \oplus R}_{n\text{ times}}. \]
+      If $I_1,\ldots,I_n$ are left ideals of $R$, then
+      $I_1\oplus \cdots \oplus I_n$ is a submodule of $R^n$.
+    \item Let $R$ be the ring of differential operators with $\CC$-valued
+      polynomials as coefficients. Then $\CC[x]$ is a left $R$-module via
+      $D \cdot f = D(f)$. e.g. let $D=(1-x^2)\frac{d^2}{dx^2}+2x\frac{d}{dx}$
+      and $f(x) = 2x-1$, then $D(f) = 4x$.
+  \end{enumerate}
+
+  \begin{lemma}
+    If $f:M\to N$ is an $R$-module homomorphism, then $\ker f$ is a submodule
+    of $M$, the image of $f$ is a submodule of $N$ and $M/\ker f \cong \im f$
+    as $R$-modules via $m+\ker f \mapsto f(m)$.
+  \end{lemma}
+
+  \begin{define}
+    If $M$ is a left $R$-module, we write $\End_R{M} = \{f:M\to M\}$, this is
+    called the \bt{Endomorphism Ring} of $M$.
+  \end{define}
+
+  \begin{lemma}[Schur's Lemma]
+    If $M$ is a simple $R$-module, then $\End_R{M}$ is a division ring.
+  \end{lemma}
+
+  \begin{prop}
+    If $M$ is a left $R$-module, there is a ring homomorphism
+    $\psi:Z(R)\to\End_R{M}$ given by $\psi(z)(m)=zm$.
+  \end{prop}
+
+  \begin{cor}
+    If $R$ is a $k$-algebra and $M$ a left $R$-module, then there is a
+    homomorphism $k \to\End_R{M}$.
+  \end{cor}
+
+  \begin{thm}[Dixmier's Theorem]
+    If $R$ is a $\CC$-algebra of countable dimension, and $M$ is a simple
+    $R$-module, then the canonical map $\psi:\CC \to \End_R{M}$ is an
+    isomorphism.
+  \end{thm}

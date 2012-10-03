@@ -1,5 +1,6 @@
 \author{R. Andrew Ohana}
 
+\usepackage{mathtools}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
@@ -14,9 +15,9 @@
 
 \newcommand{\op}{\text{op}}
 
-\renewcommand{\theenumi}{(\alph{enumi})}
-\renewcommand{\labelenumi}{\theenumi}
+\newcommand{\sub}[2]{\prescript{}{#1}{#2}}
 
+\newtheorem{thm}{Theorem}
 \newtheorem{define}{Definition}
 \newtheorem{prop}{Proposition}
 \newtheorem{lemma}{Lemma}
