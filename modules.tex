@@ -1,7 +1,5 @@
 \chapter{Modules}
 
-\section{The Basics}
-
   \begin{define}
     Let $R$ be a ring. A \bt{left $\bs{R}$-module} is an abelian group
     $(M,+)$ endowed with an action of $R$, i.e. a map $R\times M \to M$,
@@ -18,6 +16,8 @@
   \begin{enumerate}
     \item $\{0\}$. $r\cdot 0 = 0$
     \item $\sub{R}{R}$ where $r\cdot m = rm$.
+    \item If $M$ is a left $R$-module, it becomes a right $R^{\op}$-module by
+      $mr^o = rm$.
   \end{enumerate}
 
   \begin{prop}
@@ -103,3 +103,41 @@
     $R$-module, then the canonical map $\psi:\CC \to \End_R{M}$ is an
     isomorphism.
   \end{thm}
+
+  \begin{lemma}
+    If $I$ is a left ideal in $R$ and $I\neq R$, then there is a maximal
+    left ideal that contains $I$.
+  \end{lemma}
+  \begin{proof}
+    Let $\Ac$ be the set of left ideals that contain $I$ and are not $R$, then
+    there is a sequence $I_1 \subset I_2 \subset \cdots$ of $I_j\in \Ac$. But
+    $\bigcup I_j$ is a left ideal, which is maximal, containing $I$.
+  \end{proof}
+
+  \begin{prop}\label{mod:max_ind}
+    If $R$ has a unique maximal left ideal, $\sub{R}{R}$ is indecomposable.
+  \end{prop}
+  \begin{proof}
+    Let $J$ be the unique maximal left ideal, then if $R = L+N$ for some left
+    ideals $L$ and $N$, and $L\neq R$, then $L\subseteq J$. Hence
+    $N\not\subseteq J$, and so $N=R$, which implies that  if $L\neq 0$,
+    $L\cap N \neq 0$.
+  \end{proof}
+
+  \begin{prop}
+    Let $R=k[x_1,\ldots,x_n]$ and let $m=(x_1,\ldots,x_n)$. If $I\supseteq m^d$
+    for some $d$, then $R/I$ is an indecomposable $R$-module (because it has a
+    unique maximal ideal, namely $m/I$).
+  \end{prop}
+  \begin{proof}
+    Every maximal ideal of $R/I$ is of the form $n/I$ for some maximal ideal
+    $n$ of $R$ containing $I$. Now $R/n$ is a simple $R$-module and
+    $I\cdot(R/n) = (I+n)/n = n/n = 0$, but $m^d \subseteq I$, so $m^d(R/n)=0$.
+    If $S$ is a simple left $R$-module and $J$ is any left ideal of $R$, then
+    $JS$ is a submodule of $S$ so either $JS = 0$ or $JS = S$. However, if
+    $JS=S$, then $J^dS = S$ for all $d$, so $m(R/n) = 0$. But
+    $m(R/n) = (m+n)/n$ so $m\subseteq n$, which implies $m = n$ since $m$ and
+    $n$ are both maximal ideals. By Proposition \ref{mod:max_ind}, $R/I$ is
+    an indecomposable $R/I$-module and hence an indecomposable $R$-module.
+  \end{proof}
+
