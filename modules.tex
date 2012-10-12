@@ -141,3 +141,88 @@
     an indecomposable $R/I$-module and hence an indecomposable $R$-module.
   \end{proof}
 
+  \begin{define}
+    A \bt{basis} for a module $M$ is a subset $S \subseteq M$ such
+    that every element $m\in M$ can be written in a unique way as
+    \[m = \sum_{b\in S} rb, \]
+    for a unique set of $r \in R$, only finitely many of which are non-zero.
+  \end{define}
+
+  \begin{define}
+    A left $R$-module $F$ is \bt{free} if it has a basis.
+  \end{define}
+
+  Example: If $X$ is a finite set $R^X = \{\text{functions } X\to R\}$ is
+  a free module via $(rf)(x) = rf(x)$ for all $r\in R,f\in R^X,x\in X$, and
+  $R^X \cong \underbrace{R\oplus\cdots\oplus R}{|X|\text{ times}} = R^{|X|}$.
+
+  \begin{define}
+    We say $R$ has the \bt{invariant basis number} property if all bases for
+    each free module have the same number of elements.
+  \end{define}
+
+  $\Mod(R)$ is the category of left $R$-modules
+
+  Let $k$ be a field, then $\Mod(k)$ are vector spaces.
+  \begin{itemize}
+    \item Unique simple object up to isomophism, $k$.
+    \item Every object in $\Mod(k)$ is isomorphic to a direct sum of copies of
+      $k$.
+    \item $\Hom(k,k) \cong k$.
+  \end{itemize}
+
+  Now let $R = M_2(k)$, and consider $\Mod(R)$.
+  \begin{itemize}
+    \item It has a unique simple object up to isomorphism, namely
+    \[ K = \begin{bmatrix} k \\ k \end{bmatrix} = \left\{\begin{bmatrix} a \\ b\end{bmatrix} : a,b\in k\right\} \]
+    \item Ever $R$-module is isomorphic to direct sum of copies of $K$.
+    \item $\Hom_R(K,K) \cong k$.
+  \end{itemize}
+
+  \begin{prop}
+    $\Mod(k)$ is equivalent to $\Mod(R)$
+  \end{prop}
+  \begin{proof}
+    $\Mod(K) \to \Mod(R)$, where $V \mapsto \Hom_k(k^2,V) \ni f$, then
+    $(rf)(u) = f(ru)$. The free $k$-module $k\mapsto \Hom_k(k^2,k)$ is two
+    dimensional. Every $f$-dimensional free $M_2(k)$ has dimension a multiple
+    of four. The equivalence $\Mod(k)\to \Mod(M_2(k))$ does not send free
+    $k$-modules to free $M_2(k)$-modules.
+  \end{proof}
+
+  So freeness is not a categorical property.
+
+  The best things in life are $\cancel{\text{free}}$ projective. (Free modules
+  are projective but not conversely in general.)
+
+  \begin{define}
+    Fix $R$. A sequence of $R$-modules and homomorphisms
+    \[ \cdots \to A_n \stackrel{f_n}{\to} A_{n+1} \stackrel{f_{n+1}}{\to} A_{n+2} \to \cdots \]
+    is \bt{exact} if $\ker{f_{n+1}} = \im{f_n}$ for all $n$.
+  \end{define}
+  \begin{define}
+    A \bt{short exact sequence} is an exact sequence of the form
+    \[ 0 \to L \to M \to N \to 0. \]
+  \end{define}
+
+  \begin{lemma}
+    A sequence
+    \[ 0 \to L \stackrel{f}{\to} M \stackrel{g}{\to} N \to 0 \]
+    is exact if and only if
+    \begin{enumerate}
+      \item $f$ is injective
+      \item $\ker{g} = \im{f}$
+      \item $g$ is surjective
+    \end{enumerate}
+  \end{lemma}
+
+  In this situation $N \cong M/f(L)$ via
+  \[ [m+f(L)] \mapsto g(m). \]
+
+  If $L$ is a submodule of a module $M$, then there is a short exact sequence
+  \[ 0 \to L \to M \to M/L \to 0, \]
+  where $l\mapsto l$ and $m\mapsto [m+L]$.
+
+  Every short exact sequence in $\Mod(R)$ is isomorphic to a short exact
+  sequence to the form
+  \[ 0 \to L \to M \to M/L \to 0. \]
