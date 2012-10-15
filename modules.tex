@@ -195,6 +195,8 @@
   The best things in life are $\cancel{\text{free}}$ projective. (Free modules
   are projective but not conversely in general.)
 
+\section{Exact Sequences}
+
   \begin{define}
     Fix $R$. A sequence of $R$-modules and homomorphisms
     \[ \cdots \to A_n \stackrel{f_n}{\to} A_{n+1} \stackrel{f_{n+1}}{\to} A_{n+2} \to \cdots \]
@@ -226,3 +228,39 @@
   Every short exact sequence in $\Mod(R)$ is isomorphic to a short exact
   sequence to the form
   \[ 0 \to L \to M \to M/L \to 0. \]
+
+  \begin{define}
+    Let $R$ and $S$ be rings, an \bt{$\bs{R}$-$\bs{S}$-bimodule} is a left $R$-module
+    with a right $S$-module such that
+    \[ r(ms) = (rm)s \]
+    for all $r\in R$, $s\in S$, and $m\in M$.
+  \end{define}
+
+  \begin{lemma}
+    Let $M$ be a right $S$-module, then $M$ is an $\End_S{M}-S$-bimodule.
+  \end{lemma}
+  \begin{proof}
+    Make $M$ a left $\End_S{M}$-module by
+    \[ fm = f(m); \]
+    this makes $M$ a left $\End_S{M}$-module and $(fm)s = f(m)s = f(ms)$.
+  \end{proof}
+
+  \begin{prop}
+    Let $M$ be an $R$-$S$-bimodule and $N$ a $T-U$-bimodule. Then
+    $\Hom_\ZZ(M,N)$ is a left $T$-module, a left $S$-module, a right
+    $R$-module, a right $U$-module, a $T$-$R$-bimodule, a $T$-$U$-bimodule, a
+    $S$-$R$-bimodule, and a $S$-$R$-bimodule.
+  \end{prop}
+  \begin{proof}
+    If $f\in \Hom_\ZZ(M,N)$ then
+    \begin{align*}
+      (tfr)(m) &= tf(rm) \\
+      (sfu)(m) &= f(ms)u.
+    \end{align*}
+  \end{proof}
+
+  Special case: $\sub{R}{M}_S, \sub{T}{N}_U$, then $\Hom_R(M,N)$ is an
+  $S$-$U$-bimodule via $(sfu)(m) = f(ms)u$. Additionally $\Hom_R(M,R)$ is a
+  $S$-$R$-bimodule, in particular it is a right $R$-module. The rule
+  $\sub{R}{M} \to \Hom_R(M,R)$ is a contravariant functor from
+  $\Mod_l R \to \Mod_r R$.

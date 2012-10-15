@@ -1,0 +1,44 @@
+\chapter{Categories}
+
+\section{The Basics}
+
+  \begin{define}
+    A \bt{covariant functor} $F:\Cc\to \Dc$ sending objects in $\Cc$ to objects
+    in $\Dc$ and sending $\Cc(X,Y) = \{ \text{all morphisms } X\to Y\}$ to
+    $\Dc(FX, FY)$ such that
+    \begin{enumerate}
+      \item $F(f\circ g) = F(f)\circ F(g)$
+      \item $F(\Id_X) = \Id_{FX}$.
+    \end{enumerate}
+  \end{define}
+
+  Example: Let $M$ be an $R$-$S$-bimodule, then
+  $\Hom_R(M,\_): \Mod_l R\to \Mod_l S$ is a covariant functor if
+  $f\in \Hom_R(N_1, N_2)$ then
+  \[ \Hom_R(M,f): \Hom_R(M,N_1) \to \Hom_R(M, N_2) \]
+  where $\alpha \mapsto f\circ \alpha$. Check $\Hom_R(M,f)$ is a homomorphism
+  of left $S$-modules. Let $s \in S$, then
+  $\Hom_R(M,f)(s\alpha) = f\circ s\alpha$, but
+  \[ (f\circ s\alpha)(m) = f(\alpha(ms)) = (f\circ \alpha)(ms)
+  = (s(f\circ\alpha))(m)\]
+  so
+  \[ f\circ s\alpha = s(f\circ \alpha) = s\Hom(M,f)(\alpha).\]
+  Therefore $\Hom_R(M,f)$ is a homomorphism of left $S$-modules.
+
+  \begin{define}
+    A \bt{contravariant functor} $H:\Cc \to \Dc$ sends objects in $\Cc$ to
+    objects in $\Dc$ and sends $\Cc(X,Y)$ to $\Dc(HY, HX)$ such that
+    \begin{enumerate}
+      \item $H(f\circ g) = H(g)\circ H(f)$
+      \item $H(\Id_X) = \Id_{HX}$.
+    \end{enumerate}
+  \end{define}
+
+  Example: If $f:\sub{R}{M}\to \sub{R}{N}$, define
+  $f^*:\Hom_R(N,R) \to \Hom_R(M,R)$ to be $f^*(g) = g\circ f$
+  We now have the functor $*:\Mod_l{R}\to \Mod_r{R}$
+  \[ (f_1\circ f_2)^*(\alpha) = \alpha \circ f_1 \circ f_2
+    = f_2^*(\alpha\circ f_1) = f_2^*(f_1^*(\alpha))
+  = (f_2^*\circ f_1^*)(\alpha), \]
+  so $(f_1\circ f_2)^* = f_2^*\circ f_1^*$, which means this is a contravariant
+  functor.
