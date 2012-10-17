@@ -42,3 +42,69 @@
   = (f_2^*\circ f_1^*)(\alpha), \]
   so $(f_1\circ f_2)^* = f_2^*\circ f_1^*$, which means this is a contravariant
   functor.
+
+  \begin{lemma}
+    Let $0\to L\to M\to N\to 0$ be an exact sequence of left $R$-modules. Let
+    $X$ be any left $R$-module. Then the sequences
+    \begin{alignat*}{2}
+      0&\to \Hom_R(X,L) &\to \Hom_R(X,M) &\to \Hom_R(X,N), \\
+      0&\to \Hom_R(N,X) &\to \Hom_R(M,X) &\to \Hom_R(L,X)
+    \end{alignat*}
+    are exact.
+  \end{lemma}
+  \begin{proof}
+    Only first case, second case is similar. Recall $f^*(\alpha)=f\circ\alpha$,
+    so we must show $f^*$ is injective and $\im f^* = \ker g^*$. If
+    $f^*(\alpha)=0$, then $(f\circ \alpha)(x) = 0$ for all $x \in X$, but
+    $f$ is injecitive so $\alpha(x) = 0$ for all $x\in X$, so $\alpha = 0$.
+
+    If $\alpha \in \Hom_R(X, L)$, then
+    \[g^*(f^*(\alpha) = g^*(f\circ \alpha) = g\circ f\circ \alpha = 0.\]
+    But $gf = 0$, so $g^*f^* = 0$ and hence $\im f^* \subseteq \ker g^*$.
+
+    Let $\beta \in \Hom_R(X,M)$ and suppose $g^*(\beta) = 0$, so
+    $(g\circ\beta)(x) = 0$ for all $x\in X$. But this means that
+    $\beta(x) \in \ker g$, so there is a unique $l\in L$ such that
+    $f(l) = \beta(x)$, so we can define a map $\gamma:X\to L$ by
+    making $\gamma(x)$ be the unique element in $L$ such that
+    $f(\gamma(x)) = \beta(x)$.
+
+    If $r\in R$, then
+    \[ f(\gamma(rx)) = \beta(rx) = r\beta(x) = r f(\gamma(x)) = f(r\gamma(x)), \]
+    but $f$ is injective so $\gamma(rx) = r\gamma(x)$, so
+    $\gamma \in \Hom_R(X,L)$. Therefore
+    $\beta = f\circ \gamma = f^*(\gamma)$, so $\ker g^* \subseteq \im f^*$.
+  \end{proof}
+
+  Example: Consider $0\to \ZZ/2 \too{f} \ZZ/4 \too{g} \ZZ/2 \to 0$ with
+  $f(x) = 2x$ and $g(x) = x + \ZZ/2$. Suppose that there es a homomorphism
+  $\delta:\ZZ/2\to \ZZ/4$ such that $\Id = g\circ \delta = g^*(\delta)$,
+  then $\delta \neq 0$. But there is only one non-zero group homomorphism
+  from $\ZZ/2\too{g} \ZZ/4$, namely $f$. So $g\circ\delta=g\circ f=0\neq \Id$,
+  hence $\Hom_\ZZ(\ZZ/2,\ZZ/4)\too{g^*} \Hom_{\ZZ}(\ZZ/2,\ZZ/2)$ is not
+  surjective.
+
+  \begin{define}
+    If $F:\Mod R\to \Mod S$ sends short exact sequences to short exact
+    sequences, call $F$ an \bt{exact functor}.
+  \end{define}
+
+  Example: $\Hom_R(X,\_)$ is not always an exact functor. $H$ is a left left
+  exact.
+
+  \begin{prop}\label{cat:proj}
+    Let $P$ be a left $R$-module, then the following are equivalent:
+    \begin{enumerate}
+      \item $\Hom_R(P,\_)$ is an exact functor.
+      \item There exists an $R$-module $Q$ such that $P\oplus Q$ is a free
+        $R$-module.
+      \item Given a surjective $R$-module homomorphism $g:M\to N$ and a
+        homomorphism $\delta:P\to N$ and $\beta:P\to M$ such that
+        $\delta = g\circ \beta$.
+    \end{enumerate}
+  \end{prop}
+
+  \begin{define}
+    A left $R$-module $P$ is \bt{projective} if it satisfies any of the
+    conditions in Proposition \ref{cat:proj}.
+  \end{define}
