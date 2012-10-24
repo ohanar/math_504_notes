@@ -291,3 +291,59 @@
     is a $k$-linear ring homomorphism.
   \end{define}
   Say ''$R$ acts on $V$''. Often write $av$ for $\rho(a)(v)$, $a\in R$, $v\in V$.
+
+\section{Matrix Algebras}
+
+  Let $R=M_n(D) = n\times n \text{ matrices over } D$, where $D$ is a division
+  ring, then
+  \begin{itemize}
+    \item $R$ has a unique simple module up to isomorphism.
+    \item $R$ is a simple ring.
+    \item Every $R$-module is a direct sum of simple $R$-modules.
+    \item $\sub{R}{R}$ is a direct some of simple left ideals.
+  \end{itemize}
+
+  Write $D^n$ be the set of $n\times 1$ column vectors over $D$, make $D^n$
+  a left $R$-modules by $r\cdot x = rx$ (matrix multiplication).
+  \begin{prop}
+    $D^n$ is a simple left $R$-module.
+  \end{prop}
+  \begin{proof}
+    Let $0\neq x = \begin{bmatrix} x_1 \\ \vdots \\ x_n \end{bmatrix} \in D^n$,
+    some $x_j \neq 0$. Then note that $x_j^{-1}e_{ij}x = e_j$, so if $y\in D^n$
+    then let $M_{jy} = \begin{bmatrix} 0 & \cdots & 0 & y & 0 & \cdots & 0 \end{bmatrix}$
+    where $y$ is in the $j$-th column. Observe that
+    $y = M_{jy}e_j = (M_{jy}x_je_{ij})x \in Rx$, so $R$ is simple.
+  \end{proof}
+
+  Define $I_j$ to bet be the set of matrices where $r_{pq} = 0$ if $p\neq j$.
+  \begin{prop}
+    $I_j$ is a left ideal of $R$.
+  \end{prop}
+  \begin{proof}
+    Let $r \in R, x\in I_j$, then
+    \[ (rx)_{pq} = \sum_{k=1}^n r_{pk}x_{kq} = \begin{cases} 0 & p \neq j \\ (rx)_{pj} & p = j \end{cases} \]
+    So $rx \in I_j$.
+  \end{proof}
+
+  \bt{Notice} $R = I_1\oplus \cdots I_n$
+
+  \begin{lemma}
+    $R$ has a unique simple left module up to isomorphism.
+  \end{lemma}
+  \begin{proof}
+    Define $\psi: I_J \to I_k$ by $\psi:r \mapsto re_{jk}$, then $\psi$ is a
+    bijective left $R$-module homomorphism, so $\psi$ is an isomorphism of left
+    $R$-modules.
+
+    Let $S$ be a simple left $R$-module and $0\neq s \in S$, then
+    \[ S = Rs = I_1s + \cdots + I_ns.\]
+    Each $I_js$ is a left $R$-module, so $S=I_js$ for some $j$. The map
+    $\phi:I_j \to S$ given by $\phi:r \mapsto rs$ is a surjective left
+    $R$-module homomorphism.
+
+    In particular, there is a surjective homomorphism $\phi:I_j \to D^n$ for
+    some $j$ because $D^n$ is simple. Both $I_j$ and $D^n$ have dimension $n$
+    as left $D$-modules, so $\phi$ is also injective, and hence it is a left
+    $R$-module isomorphism.
+  \end{proof}
