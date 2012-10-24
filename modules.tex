@@ -264,3 +264,90 @@
   $S$-$R$-bimodule, in particular it is a right $R$-module. The rule
   $\sub{R}{M} \to \Hom_R(M,R)$ is a contravariant functor from
   $\Mod_l R \to \Mod_r R$.
+
+  \begin{thm}[Dual Basis lemma]
+    Let $P$ be a left $R$-module, then $P$ is projective
+    if and only if there are sets $\{p_i:i\in I\}\subset P$ and
+    $\{\vphi_i: i\in I\} \subset \Hom_R(P,R)$ such that
+    \begin{itemize}
+      \item if $p\in P$, $\vphi_i(p)\neq 0$
+      \item if $p\in P$, then $p = \sum_{i\in I}\vphi_i(p)p_i$.
+    \end{itemize}
+  \end{thm}
+  \begin{proof}
+    Assume that $P$ is projective, so there exists $Q$ such that $P\oplus Q$
+    is free. Let $\{e_i:i\in I\}$ be a basis for $P\oplus Q$, and write
+    $e_i = p_i+q_i=(p_i,q_i)$ with $p_i \in P$ and $q_i \in Q$. If
+    $x = \sum_{i\in I}r_ie_i$, then let $\phi_i:P\oplus Q\to R$ be
+    $\phi_i(x) = r_i$, and let $\vphi_i:P\to R$ be the restriction of $\phi_i$
+    to $P\subseteq P\oplus Q$. Let $p\in P$, and write
+    \[ p=\sum r_ie_i=\sum \vphi_i(p)e_i=\sum\vphi_i(p)p_i + \sum \vphi_i(p)q_i, \]
+    then $\sum \vphi_i(p)q_i \in Q\cap P = 0$, so $p = \sum \vphi_i(p)p_i$.
+
+    Now let $F$ be the free left $R$-module on a basis indexed by $I$, i.e.
+    $\{ b_i: i\in I\}$. Define $\theta:F\to P$ by $\theta(b_i) = p_i$. Note
+    that $\theta$ is a surjective homomorphism of left $R$-modules, so define
+    $\mu:P\to F$ by $\mu(p) = \sum \vphi_i(p)b_i$. This is an $R$-module
+    homomorphism and
+    \[ (\theta\circ \mu)(p) = \theta\left(\sum \vphi_i(p)b_i\right) = \sum\vphi_i(p)\theta(b_i) = \sum\vphi_i(p)p_i = p,\]
+    so $\theta\circ \mu = \Id_P$. Hence the sequence
+    $0\to\ker\theta\to F\to P\to 0$ splits, so $F\cong P\oplus \ker\theta$,
+    and hence $P$ is projective.
+  \end{proof}
+
+  \begin{thm}[Structure Theorem for Modules over Principle Ideal Domains]
+    If $R$ is a principle ideal domain and $M$ is a finitely generated
+    $R$-module, then
+    \[ M\cong R^n\oplus \frac{R}{m_1^{t_1}}\oplus \cdots \oplus \frac{R}{m_k^{t_k}} \]
+    for some integers $n\geq 0$, $k\geq 0$, and $t_1,\ldots,t_k>0$ and some
+    maximal ideals $m_1,\ldots m_k$.
+  \end{thm}
+
+  \begin{cor}[Structure Theorem for Finitely Abelian Groups]
+    If $G$ is finitely abelian group, then
+    \[ G \cong \ZZ^n \oplus \frac{\ZZ}{p_1^{t_1}\ZZ} \oplus \cdots \oplus \frac{\ZZ}{p_k^{t_k}\ZZ} \]
+    for some integers $n\geq 0$, $k\geq 0$, and $t_1,\ldots,t_k>0$ and some
+    primes $p_1,\ldots,p_k$.
+  \end{cor}
+
+\section{Quivers}
+
+  \begin{define}
+    A \bt{quiver} is a finite directed graph i.e. finite number of vertices
+    and arrows.
+  \end{define}
+  Often write $Q=(Q_0,Q_1)$, where $Q_0$ is a set of vertices and $Q_1$ is a
+  set of arrows.
+
+  \begin{define}
+    A representation of a quiver $Q$ (for a fixed field $k$) is a collection of
+    vector spaces $V_i$, $i\in Q_0$ and linear maps
+    $\alpha_a:V_{s(a)} \to V_{t(a)}$, $a\in Q_1$, where $s(a)$ is the base of
+    $a$ and $t(a)$ is the tip of $a$.
+  \end{define}
+
+  \begin{define}
+    Homomorphisms between representations are maps
+    \[ \Phi:(V_i, \alpha_a) \to (U_i, \beta_a),\]
+    is a collection of linear maps $\Phi_i:V_i\to U_i$, such that the following
+    commutes
+    \begin{center}
+    \begin{tikzpicture}
+      \draw node (00) {$V_{s(a)}$};
+      \draw (2,0) node (10) {$V_{t(a)}$};
+      \draw (0,-2) node (01) {$U_{s(a)}$};
+      \draw (2,-2) node (11) {$U_{t(a)}$};
+      \draw[->] (00) -> node[above] {$\alpha_a$} (10);
+      \draw[->] (01) -> node[above] {$\beta_a$} (11);
+      \draw[->] (00) -> node[right] {$\Phi_{s(a)}$} (01);
+      \draw[->] (10) -> node[right] {$\Phi_{t(a)}$} (11);
+    \end{tikzpicture}
+  \end{center}
+  \end{define}
+
+  \begin{thm}
+    There is an equivalence of categories
+    \[ \Rep(Q) \equiv \Mod(kQ) \]
+    where $kQ$ is the path algebra of $Q$, i.e. $kQ$ is the vector space with
+    basis $\{\text{paths in }Q\}$.
+  \end{thm}
